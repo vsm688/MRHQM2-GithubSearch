@@ -22,22 +22,22 @@
         <input id="searchQuery" placeholder="Search for a developer">
         <button id="searchButton">Search</button>
     </form>
-    <div class="card">
+    <div id="card" >
         <div class="img-sidebar">
-            <img id="userpic" src="https://avatars.githubusercontent.com/u/583231?v=4" alt="">
+            <img id="userpic" src="https://avatars.githubusercontent.com/u/83096769?v=4" alt="">
             <div class="heading-text-mobile">
-                <h2 class="username">AAA</h2>
-                <p class="profile-position">Joined 27 Dec 2022</p>
+                <h2 class="username">BBBBBBB</h2>
+                <p class="join-date">Joined 27 Dec 2022</p>
             </div>
             <div class="heading-text-tablet">
                 <h2 class="username">AAA</h2>
-                <p class="profile-position">Joined 27 Dec 2022</p>
+                <p class="join-date">Joined 27 Dec 2022</p>
             </div>
         </div>
         <div class="main-content">
             <div class="heading-text">
-                <h2 class="username">AAA</h2>
-                <p class="profile-position">Joined 27 Dec 2022</p>
+                <h2 class="username" id="username-gh">AAA</h2>
+                <p class="join-date">Joined 27 Dec 2022</p>
             </div>
             <div>
                 <p class="bio">
@@ -45,15 +45,15 @@
                 <div class="stats-container">
                     <div class="stat-item">
                         <p>Repos</p>
-                        <p>1</p>
+                        <p id="repo-num">1</p>
                     </div>
                     <div class="stat-item">
                         <p>Followers</p>
-                        <p>2</p>
+                        <p id="followers-num">2</p>
                     </div>
                     <div class="stat-item">
                         <p>Following</p>
-                        <p>3</p>
+                        <p id="following-num">3</p>
                     </div>
                 </div>
 
@@ -65,13 +65,13 @@
                             <i class="fa-solid fa-location-dot"></i>
                         </span>
                         <span class="icon-text">
-                            <a>aaa</a>
+                            <a id="location-text">aaa</a>
                         </span>
                         <span class="parent-icon-container" >
-                            <i class="fa-solid fa-location-dot"></i>
+                            <i class="fa-brands fa-twitter"></i>
                         </span>
                         <span class="icon-text">
-                            <a>aaaa</a>
+                            <a id="twitter-text">aaaa</a>
                         </span>
                     </div>
                     <div class="icon-parent">
@@ -94,6 +94,7 @@
 
         </div>
     </div>
+    <script src="app.js"></script>
 </body>
 
 </html>

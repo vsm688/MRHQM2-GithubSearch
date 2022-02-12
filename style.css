@@ -66,9 +66,9 @@ body {
 
 /* Center card container and its children */
 
-.card {
+#card {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  display: flex;
+  display: none;
   width: 50%;
   padding: 20px;
   text-align: center;
@@ -146,7 +146,7 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-  .card {
+  #card {
     width: 90%;
     flex-direction: column;
     margin-left: 10px;
