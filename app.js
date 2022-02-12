@@ -1,18 +1,25 @@
+const grabQuery = (event) => {
+    event.preventDefault();
+    fetchPromise(event.target['devquery'].value);
+}
+
 const fetchPromise = (search_param) => {
   var myHeaders = new Headers();
-
-//   add authorization headers here DO NOT COMMIT THEM TO GITHUB!
+  let itemsearch = document.getElementById("searchQuery");
+    
+  //   add authorization headers here DO NOT COMMIT THEM TO GITHUB!
   var requestOptions = {
     method: "GET",
     headers: myHeaders,
     redirect: "follow",
   };
 
-  fetch("https://api.github.com/users/vsm688", requestOptions)
+  fetch(`https://api.github.com/users/${search_param}`, requestOptions)
     .then((response) => response.text())
     .then((result) => processData(result))
     .catch((error) => console.log("error", error));
 };
+
 
 const processData = (jsonObj) => {
   userObj = JSON.parse(jsonObj);
@@ -25,6 +32,9 @@ const processData = (jsonObj) => {
   const repoNum = userObj.public_repos;
   const twitterUsername = userObj.twitter_username;
   const location = userObj.location;
+  const email = userObj.email;
+  console.log(email);
+  const blog = userObj.blog;
   fillData(
     avatarUrl,
     userName,
@@ -33,7 +43,9 @@ const processData = (jsonObj) => {
     following,
     repoNum,
     twitterUsername,
-    location
+    location,
+    email,
+    blog
   );
 };
 
@@ -45,7 +57,9 @@ const fillData = (
   following,
   repoNum,
   twitterUsername,
-  location
+  location,
+  email,
+  blog
 ) => {
   //   fill User Picture.
   document.getElementById("userpic").src = avatarUrl;
@@ -59,35 +73,57 @@ const fillData = (
   document.getElementById("followers-num").innerText = followers;
   document.getElementById("following-num").innerText = following;
   document.getElementById("repo-num").innerText = repoNum;
-  
-  fillIcons(twitterUsername,location);
+
+  fillIcons(twitterUsername, location, email, blog);
 
   //   Dont load until card until all information fields have been filled.
   document.getElementById("card").style.display = "flex";
 };
 
-
-const fillIcons = (twitterText, locationText) =>{
-    fillTwitter(twitterText);
-    fillLocation(locationText);
-}
+const fillIcons = (twitterText, locationText, emailText, blogText) => {
+  fillTwitter(twitterText);
+  fillLocation(locationText);
+  fillEmail(emailText);
+  fillBlog(blogText);
+};
 
 const fillTwitter = (twitterText) => {
   if (twitterText === null) {
     document.getElementById("twitter-text").innerText = "N/A";
   } else {
+    document.getElementById(
+      "twitter-text"
+    ).href = `https://twitter.com/${twitterText}`;
     document.getElementById("twitter-text").innerText = twitterText;
   }
 };
 
-const fillLocation = (locationText) =>{
-    if (locationText === null) {
-        document.getElementById("location-text").innerText = "N/A";
-      } else {
-        document.getElementById("location-text").innerText = locationText;
-      }
-    };
+const fillLocation = (locationText) => {
+  if (locationText === null) {
+    document.getElementById("location-text").innerText = "N/A";
+  } else {
+    document.getElementById("location-text").innerText = locationText;
+  }
+};
 
+const fillEmail = (emailText) => {
+  if (emailText === null) {
+    document.getElementById("email-text").innerText = "N/A";
+  } else {
+    document.getElementById("email-text").href = emailText;
+    document.getElementById("email-text").innerText = "Email me!";
+  }
+};
+
+const fillBlog = (blogText) => {
+  console.log(blogText);
+  if (blogText === null) {
+    document.getElementById("blog-text").innerText = "N/A";
+  } else {
+    document.getElementById("blog-text").href = blogText;
+    document.getElementById("blog-text").innerText = "Blog";
+  }
+};
 
 //   Helper functions for processing the data. See below for implementation details.
 const fillUserNameInfo = (userNameArray, userName) => {
@@ -141,4 +177,3 @@ const constructDateString = (dateArr) => {
   return dateString;
 };
 
-fetchPromise();

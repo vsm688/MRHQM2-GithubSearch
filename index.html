@@ -17,12 +17,12 @@
         <h1>Developer Search</h1>
         <i class="fa-solid fa-moon"> Dark</i>
     </div>
-    <form class="search-container">
+    <form class="search-container" onsubmit="grabQuery(event)" >
         <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; color:#087cfc; margin-left: 10px;"></i>
-        <input id="searchQuery" placeholder="Search for a developer">
-        <button id="searchButton">Search</button>
+        <input id="searchQuery" placeholder="Search for a developer" name="devquery">
+        <input type ="submit" id="searchButton" value="Submit" style="text-align:center;"></input>
     </form>
-    <div id="card" >
+    <div id="card">
         <div class="img-sidebar">
             <img id="userpic" src="https://avatars.githubusercontent.com/u/83096769?v=4" alt="">
             <div class="heading-text-mobile">
@@ -60,33 +60,40 @@
                 <!-- add icons list here -->
                 <div class="parent-intial">
                     <div class="icon-parent">
-                    
-                        <span class="parent-icon-container" >
-                            <i class="fa-solid fa-location-dot"></i>
-                        </span>
-                        <span class="icon-text">
-                            <a id="location-text">aaa</a>
-                        </span>
-                        <span class="parent-icon-container" >
-                            <i class="fa-brands fa-twitter"></i>
-                        </span>
-                        <span class="icon-text">
-                            <a id="twitter-text">aaaa</a>
-                        </span>
+                        <div class="icon-flex-container">
+                            <span class="parent-icon-container">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span class="icon-text">
+                                <a id="location-text">aaa</a>
+                            </span>
+                        </div>
+                        <div class="icon-flex-container">
+                            <span class="parent-icon-container">
+                                <i class="fa-brands fa-twitter" href="www.google.com"></i>
+                            </span>
+                            <span class="icon-text">
+                                <a id="twitter-text">aaaa</a>
+                            </span>
+                        </div>
                     </div>
                     <div class="icon-parent">
-                        <span class="parent-icon-container">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </span>
-                        <span class ="icon-text">
-                            <a>aa</a>
-                        </span>
-                        <span  class="parent-icon-container">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </span>
-                        <span class ="icon-text">
-                            <a>aaaa</a>
-                        </span>
+                        <div class="icon-flex-container">
+                            <span class="parent-icon-container">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span class="icon-text">
+                                <a id="email-text">aa</a>
+                            </span>
+                        </div>
+                        <div class="icon-flex-container">
+                            <span class="parent-icon-container">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </span>
+                            <span class="icon-text">
+                                <a id="blog-text">aaaa</a>
+                            </span>
+                        </div>
                     </div>
 
                 </div>

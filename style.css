@@ -124,6 +124,11 @@ body {
   margin-top: 10px;
 }
 
+.icon-flex-container{
+    display:flex;
+    width:50%;
+}
+
 .parent-icon-container{
   width: 10%;
 
