@@ -9,6 +9,11 @@
   border-radius: 50px;
 }
 
+
+p{
+  color: #858a93;
+}
+
 body {
   font-family: "Fira Sans", sans-serif;
   line-height: 1.6;
@@ -100,18 +105,27 @@ body {
 }
 
 .stats-container {
-  display: flex;
-  border-radius: 20px;
-  justify-content: space-around;
-  background: #f3f6fd;
+  overflow: auto;
+  border-radius: 6px;
+  border: 0px solid black;
+  background-color: #f3f6fd;
+  box-shadow: 0 0 10px black;
+  margin-bottom: 20px;
 }
 
-.stat-item {
-  display: flex;
-  flex-direction: column;
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-style: hidden;
+  text-align: left;
+  width: 100%;
+  max-width: 100%;
 }
-.stat-item p {
-  display: flex;
+
+th,
+td {
+  padding: 10px;
+  border: 1px solid #CCCCCC;
 }
 
 /* Controls the styling for the icon list at the bottom of the card */
@@ -130,7 +144,9 @@ body {
 }
 
 .parent-icon-container{
-  width: 35%;
+  display:flex;
+  width: 20%;
+
 
 }
 .icon-text {

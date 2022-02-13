@@ -15,46 +15,54 @@
 <body>
     <div class="header-div">
         <h1>Developer Search</h1>
-        <i class="fa-solid fa-moon"> Dark</i>
+        <div style="display:flex; align-items:center;">
+            <p style="padding-right: 10px;">Dark</p>
+            <i class="fa-solid fa-moon"></i>
+        </div>
     </div>
-    <form class="search-container" onsubmit="grabQuery(event)" >
+    <form class="search-container" onsubmit="grabQuery(event)">
         <i class="fa-solid fa-magnifying-glass" style="font-size: 24px; color:#087cfc; margin-left: 10px;"></i>
         <input id="searchQuery" placeholder="Search for a developer" name="devquery">
-        <input type ="submit" id="searchButton" value="Submit" style="text-align:center;"></input>
+        <input type="submit" id="searchButton" value="Submit" style="text-align:center;"></input>
     </form>
     <div id="card">
         <div class="img-sidebar">
             <img id="userpic" src="https://avatars.githubusercontent.com/u/83096769?v=4" alt="">
             <div class="heading-text-mobile">
-                <h2 class="username">BBBBBBB</h2>
+                <h1 class="username">BBBBBBB</h1>
                 <p class="join-date">Joined 27 Dec 2022</p>
             </div>
             <div class="heading-text-tablet">
-                <h2 class="username">AAA</h2>
+                <h1 class="username">AAA</h1>
                 <p class="join-date">Joined 27 Dec 2022</p>
             </div>
         </div>
         <div class="main-content">
             <div class="heading-text">
-                <h2 class="username" id="username-gh">AAA</h2>
+                <h1 class="username" id="username-gh">AAA</h1>
                 <p class="join-date">Joined 27 Dec 2022</p>
             </div>
             <div>
                 <p id="bio">
                 </p>
                 <div class="stats-container">
-                    <div class="stat-item">
-                        <p>Repos</p>
-                        <p id="repo-num">1</p>
-                    </div>
-                    <div class="stat-item">
-                        <p>Followers</p>
-                        <p id="followers-num">2</p>
-                    </div>
-                    <div class="stat-item">
-                        <p>Following</p>
-                        <p id="following-num">3</p>
-                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Repos</th>
+                                <th>Followers</th>
+                                <th>Following</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td id="repo-num"></td>
+                                <td id="followers-num"></td>
+                                <td id="following-num"></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <!-- add icons list here -->
@@ -62,7 +70,7 @@
                     <div class="icon-parent">
                         <div class="icon-flex-container">
                             <span class="parent-icon-container">
-                                <i class="fa-solid fa-location-dot" style="font-size: 36px;"></i>
+                                <i id="location-icon" class="fa-solid fa-location-dot" style="font-size: 36px;"></i>
                             </span>
                             <span class="icon-text">
                                 <a id="location-text">aaa</a>
@@ -70,7 +78,8 @@
                         </div>
                         <div class="icon-flex-container">
                             <span class="parent-icon-container">
-                                <i class="fa-brands fa-twitter" style="font-size: 36px;" href="www.google.com"></i>
+                                <i id="twitter-icon" class="fa-brands fa-twitter" style="font-size: 36px;"
+                                    href="www.google.com"></i>
                             </span>
                             <span class="icon-text">
                                 <a id="twitter-text">aaaa</a>
@@ -80,7 +89,7 @@
                     <div class="icon-parent">
                         <div class="icon-flex-container">
                             <span class="parent-icon-container">
-                                <i class="fa-solid fa-envelope" style="font-size: 36px;"></i>
+                                <i id="mail-icon" class="fa-solid fa-envelope" style="font-size: 36px;"></i>
                             </span>
                             <span class="icon-text">
                                 <a id="email-text">aa</a>
@@ -88,7 +97,7 @@
                         </div>
                         <div class="icon-flex-container">
                             <span class="parent-icon-container">
-                                <i class="fa-solid fa-location-dot" style="font-size: 36px;"></i>
+                                <i id="chain-icon" class="fa-solid fa-location-dot" style="font-size: 36px;"></i>
                             </span>
                             <span class="icon-text">
                                 <a id="blog-text">aaaa</a>

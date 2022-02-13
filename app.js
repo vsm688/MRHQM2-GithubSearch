@@ -75,7 +75,7 @@ const fillData = (
   joinDateArray = document.getElementsByClassName("join-date");
   fillJoinDateInfo(joinDateArray, joinDate);
   //   fill bio information
-  document.getElementById("bio").innerText = bio;
+  fillBio(bio);
 
   //   next three lines fill followers, following and repoNum statistics.
   document.getElementById("followers-num").innerText = followers;
@@ -95,40 +95,58 @@ const fillIcons = (twitterText, locationText, emailText, blogText) => {
   fillBlog(blogText);
 };
 
+
+const fillBio = (bioText) =>{
+  if (bioText === null || bioText === "") {
+    document.getElementById("bio").innerText = "this profile has no bio.";
+  } else {
+
+    document.getElementById("bio").innerText = bioText;
+  }
+}
+
 const fillTwitter = (twitterText) => {
-  if (twitterText === null) {
+  if (twitterText === null || twitterText === "") {
     document.getElementById("twitter-text").innerText = "N/A";
+    document.getElementById("twitter-icon").style.color = "#a4b5cb";
   } else {
     document.getElementById(
       "twitter-text"
     ).href = `https://twitter.com/${twitterText}`;
     document.getElementById("twitter-text").innerText = twitterText;
+    document.getElementById("location-icon").style.color = "#4f6b9d;";
   }
 };
 
 const fillLocation = (locationText) => {
-  if (locationText === null) {
+  if (locationText === null || locationText === "") {
     document.getElementById("location-text").innerText = "N/A";
+    document.getElementById("location-icon").style.color = "#a4b5cb";
   } else {
     document.getElementById("location-text").innerText = locationText;
+    document.getElementById("location-icon").style.color = "#4f6b9d;";
   }
 };
 
 const fillEmail = (emailText) => {
   if (emailText === null || emailText === "") {
     document.getElementById("email-text").innerText = "N/A";
+    document.getElementById("mail-icon").style.color = "#a4b5cb";
   } else {
     document.getElementById("email-text").href = emailText;
     document.getElementById("email-text").innerText = "Email me!";
+    document.getElementById("location-icon").style.color = "#4f6b9d;";
   }
 };
 
 const fillBlog = (blogText) => {
-  if (blogText === null) {
+  if (blogText === null || blogText === "") {
     document.getElementById("blog-text").innerText = "N/A";
+    document.getElementById("chain-icon").style.color ="#a4b5cb";
   } else {
     document.getElementById("blog-text").href = blogText;
     document.getElementById("blog-text").innerText = "Blog";
+    document.getElementById("location-icon").style.color = "#4f6b9d;";
   }
 };
 
