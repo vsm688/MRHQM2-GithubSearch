@@ -91,12 +91,12 @@ body {
   width: 65%;
   margin-left: 30px;
 }
-.bio {
+#bio {
   display: flex;
   width: 100%;
   align-items: flex-start;
   justify-content: flex-start;
-  word-break: break-all;
+  text-align: left;
 }
 
 .stats-container {
@@ -130,15 +130,21 @@ body {
 }
 
 .parent-icon-container{
-  width: 10%;
+  width: 35%;
 
 }
 .icon-text {
+  display:flex;
   width: 100%;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
   text-align: left;
+  align-items: center;
+}
+
+.icon-text a{
+  text-decoration: none;
 }
 
 /* Mobile and tablet card heading text */
@@ -148,6 +154,11 @@ body {
 }
 .heading-text-tablet {
   display: none;
+}
+
+
+.parent-icon-container i{
+  color: #4f6b9d;
 }
 
 @media screen and (max-width: 1000px) {
@@ -203,6 +214,6 @@ body {
     width: auto;
   }
   .icon-parent{
-      flex-direction: row;
+      flex-direction: column;
   }
 }

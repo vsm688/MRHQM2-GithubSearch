@@ -3,10 +3,13 @@ const grabQuery = (event) => {
     fetchPromise(event.target['devquery'].value);
 }
 
+
 const fetchPromise = (search_param) => {
   var myHeaders = new Headers();
   let itemsearch = document.getElementById("searchQuery");
-    
+
+
+
   //   add authorization headers here DO NOT COMMIT THEM TO GITHUB!
   var requestOptions = {
     method: "GET",
@@ -24,6 +27,7 @@ const fetchPromise = (search_param) => {
 const processData = (jsonObj) => {
   userObj = JSON.parse(jsonObj);
   console.log(userObj);
+  const bio = userObj.bio;
   const avatarUrl = userObj.avatar_url;
   const userName = userObj.login;
   const joinDate = constructDateString(convertDate(userObj.created_at));
@@ -33,7 +37,6 @@ const processData = (jsonObj) => {
   const twitterUsername = userObj.twitter_username;
   const location = userObj.location;
   const email = userObj.email;
-  console.log(email);
   const blog = userObj.blog;
   fillData(
     avatarUrl,
@@ -45,7 +48,8 @@ const processData = (jsonObj) => {
     twitterUsername,
     location,
     email,
-    blog
+    blog,
+    bio
   );
 };
 
@@ -59,7 +63,8 @@ const fillData = (
   twitterUsername,
   location,
   email,
-  blog
+  blog,
+  bio
 ) => {
   //   fill User Picture.
   document.getElementById("userpic").src = avatarUrl;
@@ -69,6 +74,9 @@ const fillData = (
   //   fill Join date information.
   joinDateArray = document.getElementsByClassName("join-date");
   fillJoinDateInfo(joinDateArray, joinDate);
+  //   fill bio information
+  document.getElementById("bio").innerText = bio;
+
   //   next three lines fill followers, following and repoNum statistics.
   document.getElementById("followers-num").innerText = followers;
   document.getElementById("following-num").innerText = following;
@@ -107,7 +115,7 @@ const fillLocation = (locationText) => {
 };
 
 const fillEmail = (emailText) => {
-  if (emailText === null) {
+  if (emailText === null || emailText === "") {
     document.getElementById("email-text").innerText = "N/A";
   } else {
     document.getElementById("email-text").href = emailText;
@@ -116,7 +124,6 @@ const fillEmail = (emailText) => {
 };
 
 const fillBlog = (blogText) => {
-  console.log(blogText);
   if (blogText === null) {
     document.getElementById("blog-text").innerText = "N/A";
   } else {
@@ -176,4 +183,3 @@ const constructDateString = (dateArr) => {
   }
   return dateString;
 };
-
