@@ -67,6 +67,7 @@ body {
   font-weight: 900;
   color: white;
   height: 35px;
+  cursor: pointer;
 }
 
 /* Center card container and its children */
@@ -177,6 +178,20 @@ td {
   color: #4f6b9d;
 }
 
+/* Hides an html element */
+
+#light-dark{
+  display:flex;
+  user-select: none;
+  cursor: pointer;
+}
+
+#dark-light{
+  display:none;
+  user-select: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
   #card {
     width: 90%;
@@ -193,6 +208,10 @@ td {
 
   .main-content {
     width: auto;
+  }
+
+  .header-div{
+    width: 100%;
   }
 
   .heading-text {
@@ -231,5 +250,8 @@ td {
   }
   .icon-parent{
       flex-direction: column;
+  }
+  .search-container{
+    width: 100%;
   }
 }

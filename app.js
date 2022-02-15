@@ -1,3 +1,18 @@
+const lightToDarkToggle = () =>{
+  document.getElementById("light-dark").style.display = "none";
+  document.getElementById("dark-light").style.display = "flex";
+}
+
+const darkToLightToggle = () =>{
+  document.getElementById("light-dark").style.display = "Flex";
+  document.getElementById("dark-light").style.display = "none";
+}
+
+document.getElementById("light-dark").addEventListener("click",lightToDarkToggle);
+document.getElementById("dark-light").addEventListener("click",darkToLightToggle);
+
+
+
 const grabQuery = (event) => {
     event.preventDefault();
     fetchPromise(event.target['devquery'].value);
@@ -22,6 +37,8 @@ const fetchPromise = (search_param) => {
     .then((result) => processData(result))
     .catch((error) => console.log("error", error));
 };
+
+
 
 
 const processData = (jsonObj) => {
