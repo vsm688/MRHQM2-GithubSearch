@@ -1,31 +1,17 @@
-const lightToDarkToggle = () =>{
-  document.getElementById("light-dark").style.display = "none";
-  document.getElementById("dark-light").style.display = "flex";
-}
-
-const darkToLightToggle = () =>{
-  document.getElementById("light-dark").style.display = "Flex";
-  document.getElementById("dark-light").style.display = "none";
-}
-
-document.getElementById("light-dark").addEventListener("click",lightToDarkToggle);
-document.getElementById("dark-light").addEventListener("click",darkToLightToggle);
-
-
+// Grabs information from search bar.
 
 const grabQuery = (event) => {
     event.preventDefault();
     fetchPromise(event.target['devquery'].value);
 }
 
-
+// Promise which grabs data from github API.
 const fetchPromise = (search_param) => {
   var myHeaders = new Headers();
   let itemsearch = document.getElementById("searchQuery");
 
 
-
-  //   add authorization headers here DO NOT COMMIT THEM TO GITHUB!
+  //   add my authorization headers here DO NOT COMMIT THEM TO GITHUB / USE .ENV FILE IF POSSIBLE!
   var requestOptions = {
     method: "GET",
     headers: myHeaders,
@@ -39,7 +25,7 @@ const fetchPromise = (search_param) => {
 };
 
 
-
+// Collect data from the API. --> Parses JSON string.
 
 const processData = (jsonObj) => {
   userObj = JSON.parse(jsonObj);
@@ -101,9 +87,11 @@ const fillData = (
 
   fillIcons(twitterUsername, location, email, blog);
 
-  //   Dont load until card until all information fields have been filled.
+  //   Doesn't load the card until all information fields have been filled.
   document.getElementById("card").style.display = "flex";
 };
+
+// Helper functions to fill the data into the html. 
 
 const fillIcons = (twitterText, locationText, emailText, blogText) => {
   fillTwitter(twitterText);
@@ -167,7 +155,7 @@ const fillBlog = (blogText) => {
   }
 };
 
-//   Helper functions for processing the data. See below for implementation details.
+
 const fillUserNameInfo = (userNameArray, userName) => {
   for (let i = 0; i < userNameArray.length; i++) {
     userNameArray[i].innerText = userName;
@@ -179,6 +167,8 @@ const fillJoinDateInfo = (joinDateArray, joinDate) => {
     joinDateArray[i].innerText = "Joined " + joinDate;
   }
 };
+
+//   Helper functions for processing the date data. See below for implementation details.
 
 const convertDate = (joinDate) => {
   let dates = joinDate.split("T")[0].split("-");
@@ -218,3 +208,19 @@ const constructDateString = (dateArr) => {
   }
   return dateString;
 };
+
+
+  // light to dark toggle ( incomplete)
+
+const lightToDarkToggle = () =>{
+  document.getElementById("light-dark").style.display = "none";
+  document.getElementById("dark-light").style.display = "flex";
+}
+
+const darkToLightToggle = () =>{
+  document.getElementById("light-dark").style.display = "Flex";
+  document.getElementById("dark-light").style.display = "none";
+}
+
+document.getElementById("light-dark").addEventListener("click",lightToDarkToggle);
+document.getElementById("dark-light").addEventListener("click",darkToLightToggle);
